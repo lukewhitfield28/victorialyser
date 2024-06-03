@@ -110,3 +110,4 @@ class Main:
 
 if __name__ == "__main__":
     main = Main()
+    main.read_file("Sikkim1840_01_23.v2")
