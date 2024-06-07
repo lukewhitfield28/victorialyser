@@ -6,8 +6,16 @@ class Main:
         self.history = ""
         self.heading_dict = {"active_war": False, "previous_war": False}
 
+    @staticmethod
+    def read_folder(folder):
+        try:
+            with open(folder + "/42960_install.vdf", mode='r'):
+                return True
+        except FileNotFoundError:
+            return False
+
     def read_file(self, file):
-        # Retrieve history
+        # Retrieve history and validate file
         try:
             with open(file, mode='r', encoding="latin_1") as f:
                 content = f.readlines()
@@ -22,6 +30,9 @@ class Main:
                     if line.find("invention=") != -1:
                         end = content.index(line)
                         break
+
+            if start == 0 or end == 0:
+                return False
 
         except FileNotFoundError:
             return False
@@ -90,7 +101,7 @@ class Main:
 
     def view_war(self, war):
         def search(heading):
-            record = ""
+            record = {}
             if self.heading_dict[heading]:
                 if self.history[heading]["name"].find(war) != -1:
                     record = self.history[heading]
@@ -102,12 +113,44 @@ class Main:
             return record
 
         searched_record = search("active_war")
-        if searched_record == "":
+        if searched_record == {}:
             searched_record = search("previous_war")
 
-        return searched_record
+        belligerents = {"active": {"atk": [], "def": []}, "previous": {"atk": [], "def": []}}
+        battles = []
+
+        history = searched_record["history"]
+
+        def parse(event, date):
+            def amend_belligerents(key, add, remove, side):
+                belligerents[add][side].append(event[key])
+                if event[key] in belligerents[remove][side]:
+                    belligerents[remove][side].remove(event[key])
+
+            match next(iter(event)):
+                # Belligerents
+                case "add_attacker":
+                    amend_belligerents(next(iter(event)), "active", "previous", "atk")
+                case "add_defender":
+                    amend_belligerents(next(iter(event)), "active", "previous", "def")
+                case "rem_attacker":
+                    amend_belligerents(next(iter(event)), "previous", "active", "atk")
+                case "rem_defender":
+                    amend_belligerents(next(iter(event)), "previous", "active", "def")
+                # Battle
+                case "battle":
+                    battles.append(event["battle"])
+                    battles[-1]["date"] = date
+
+        for searched_date, data in history.items():
+            if type(data) is dict:
+                parse(data, searched_date)
+            else:
+                for searched_event in data:
+                    parse(searched_event, searched_date)
+
+        return {"belligerents": belligerents, "battles": battles}
 
 
 if __name__ == "__main__":
     main = Main()
-    main.read_file("Sikkim1840_01_23.v2")
