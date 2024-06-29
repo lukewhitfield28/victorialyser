@@ -1,156 +1,198 @@
+import os
 import json
 
 
-class Main:
-    def __init__(self):
-        self.history = ""
-        self.heading_dict = {"active_war": False, "previous_war": False}
+def load_presets():
+    with open('data.json', 'r') as df:
+        data = json.load(df)
+        return data["file"], data["folder"]
 
-    @staticmethod
-    def read_folder(folder):
-        try:
-            with open(folder + "/42960_install.vdf", mode='r'):
-                return True
-        except FileNotFoundError:
-            return False
 
-    def read_file(self, file):
-        # Retrieve history and validate file
-        try:
-            with open(file, mode='r', encoding="latin_1") as f:
-                content = f.readlines()
-                start, end = 0, 0
-
-                for line in content:
-                    if line.find("active_war") != -1:
-                        start = content.index(line)
-                        break
-
-                for line in content[start:]:
-                    if line.find("invention=") != -1:
-                        end = content.index(line)
-                        break
-
-            if start == 0 or end == 0:
-                return False
-
-        except FileNotFoundError:
-            return False
-
-        history = content[start:end]
-
-        # Format line-by-line
-        for ln in range(0, len(history)-1):
-            line = history[ln]
-
-            temp = "\""
-            if line[:-2].find("=") == -1:
-                temp += line[:-2].strip() + "\"="
-            else:
-                temp += line[:line.find("=")].strip() + "\"="
-                if line[:-2].find("=\"") == -1:
-                    try:
-                        int(line[line.find("=") + 1])
-                        temp += line[line.find("=") + 1:].strip()
-                    except ValueError:
-                        temp += "\"" + line[line.find("=") + 1:].strip() + "\""
-                else:
-                    temp += line[line.find("=") + 1:].strip()
-
-            if len(line.strip()) > 1:
-                history[ln] = temp.strip()
-
-            history[ln] = history[ln].replace("=", ":")
-            if history[ln].strip() != "{" and history[ln+1].strip() != "{" and history[ln+1].strip() != "}":
-                history[ln] += ","
-
-        # Finish formatting the JSON String
-        history.insert(0, "{")
-        history.insert(-1, "}")
-        history = ''.join(history)
-
-        # Convert JSON String to Dictionary
-        def merge_duplicates_keys(key_pair):
-            dictionary = {}
-            for key, value in key_pair:
-                if key in dictionary:
-                    if type(dictionary[key]) is list:
-                        dictionary[key].append(value)
-                    else:
-                        dictionary[key] = [dictionary[key], value]
-                else:
-                    dictionary[key] = value
-            return dictionary
-
-        self.history = json.loads(history, object_pairs_hook=merge_duplicates_keys)
-        for h in ["active_war", "previous_war"]:
-            self.heading_dict[h] = True if type(self.history[h]) is dict else False
-
+def try_folder(folder):
+    if os.path.isfile(folder + "/42960_install.vdf"):
+        with open('data.json', 'r+') as df:
+            data = json.load(df)
+            data["folder"] = folder
+            df.seek(0)
+            json.dump(data, df)
         return True
+    else:
+        return False
 
-    def list_wars(self, heading):
-        wars = {}
-        for h in heading:
-            wars[h] = []
-            if self.heading_dict[h]:
-                wars[h].append(self.history[h]["name"])
+
+def try_file(file):
+    if os.path.isfile(file):
+        with open(file, mode='r', encoding="latin_1") as f:
+            for line in f.readlines():
+                if line.find("active_war") != -1 or line.find("previous_war") != -1:
+                    with open('data.json', 'r+') as df:
+                        data = json.load(df)
+                        data["file"] = file
+                        df.seek(0)
+                        json.dump(data, df)
+                    return True
+        return False
+    else:
+        return False
+
+
+def read_file(file):
+    with open(file, mode='r', encoding="latin_1") as f:
+        content = f.readlines()
+        start, end = 0, 0
+
+        for line in content:
+            if line.find("active_war") != -1:  # TODO: Allow scenario without active wars
+                start = content.index(line)
+                break
+
+        for line in content[start:]:
+            if line.find("invention=") != -1:
+                end = content.index(line)
+                break
+
+    history = content[start:end]
+
+    # Format line-by-line
+    for ln in range(0, len(history)-1):
+        line = history[ln]
+
+        temp = "\""
+        if line[:-2].find("=") == -1:
+            temp += line[:-2].strip() + "\"="
+        else:
+            temp += line[:line.find("=")].strip() + "\"="
+            if line[:-2].find("=\"") == -1:
+                try:  # TODO: Consider if try/except statement can be avoided
+                    int(line[line.find("=") + 1])
+                    temp += line[line.find("=") + 1:].strip()
+                except ValueError:
+                    temp += "\"" + line[line.find("=") + 1:].strip() + "\""
             else:
-                for i in self.history[h]:
-                    wars[h].append(i["name"])
-        return wars
+                temp += line[line.find("=") + 1:].strip()
 
-    def view_war(self, war):
-        def search(heading):
-            record = {}
-            if self.heading_dict[heading]:
-                if self.history[heading]["name"].find(war) != -1:
-                    record = self.history[heading]
+        if len(line.strip()) > 1:  # TODO: Consider moving this to the top of the loop to save processing whitespace
+            history[ln] = temp.strip()
+
+        history[ln] = history[ln].replace("=", ":")
+        if history[ln].strip() != "{" and history[ln+1].strip() != "{" and history[ln+1].strip() != "}":
+            history[ln] += ","
+
+    # Finish formatting JSON String
+    history.insert(0, "{")
+    history.insert(-1, "}")
+    history = ''.join(history)
+
+    # Convert JSON String to Dictionary
+    def merge_duplicates_keys(key_pair):
+        dictionary = {}
+        for key, value in key_pair:
+            if key in dictionary:
+                if type(dictionary[key]) is list:
+                    dictionary[key].append(value)
+                else:
+                    dictionary[key] = [dictionary[key], value]
             else:
-                for i in self.history[heading]:
-                    if i["name"].find(war) != -1:
-                        record = i
-                        break
-            return record
+                dictionary[key] = value
+        return dictionary
 
-        searched_record = search("active_war")
-        if searched_record == {}:
-            searched_record = search("previous_war")
+    history = json.loads(history, object_pairs_hook=merge_duplicates_keys)
+    return history
 
-        belligerents = {"active": {"atk": [], "def": []}, "previous": {"atk": [], "def": []}}
-        battles = []
 
-        history = searched_record["history"]
+def _key_dict(dictionary, key):
+    return True if type(dictionary[key]) is dict else False
 
-        def parse(event, date):
-            def amend_belligerents(key, add, remove, side):
-                belligerents[add][side].append(event[key])
-                if event[key] in belligerents[remove][side]:
-                    belligerents[remove][side].remove(event[key])
 
-            match next(iter(event)):
-                # Belligerents
-                case "add_attacker":
-                    amend_belligerents(next(iter(event)), "active", "previous", "atk")
-                case "add_defender":
-                    amend_belligerents(next(iter(event)), "active", "previous", "def")
-                case "rem_attacker":
-                    amend_belligerents(next(iter(event)), "previous", "active", "atk")
-                case "rem_defender":
-                    amend_belligerents(next(iter(event)), "previous", "active", "def")
-                # Battle
-                case "battle":
-                    battles.append(event["battle"])
-                    battles[-1]["date"] = date
+def get_wars(history):
+    wars = {}
+    for key in ["active_war", "previous_war"]:
+        wars[key] = []
+        if _key_dict(history, key):
+            wars[key].append(history[key]["name"])
+        else:
+            for war in history[key]:
+                wars[key].append(war["name"])
+    return wars
 
-        for searched_date, data in history.items():
-            if type(data) is dict:
-                parse(data, searched_date)
+
+def get_record(history, war, key):
+    record = {}
+    if _key_dict(history, key):
+        if history[key]["name"].find(war) != -1:
+            record = history[key]
+    else:
+        for w in history[key]:
+            if w["name"].find(war) != -1:
+                record = w
+                break
+    return record
+
+
+def get_tags(history):
+    tags = []
+
+    def parse_record(record):
+        def parse_event(event):
+            if next(iter(event)) in ["add_attacker", "add_defender", "rem_attacker", "rem_defender"]:
+                if event[next(iter(event))] not in tags:
+                    tags.append(event[next(iter(event))])
+
+        for date, item in record["history"].items():  # TODO: Add compatibility with mods where structure is different
+            if type(item) is dict:
+                parse_event(item)
             else:
-                for searched_event in data:
-                    parse(searched_event, searched_date)
+                for subitem in item:
+                    parse_event(subitem)
 
-        return {"belligerents": belligerents, "battles": battles}
+    for key in ["active_war", "previous_war"]:
+        if _key_dict(history, key):
+            parse_record(history[key])
+        else:
+            for war in history[key]:
+                parse_record(get_record(history, war["name"], key))
+                
+    return tags
+
+
+def view_war(history, war):
+    record = get_record(history, war, "active_war")
+    if record == {}:
+        record = get_record(history, war, "previous_war")
+
+    belligerents = {"active": {"attacker": [], "defender": []}, "previous": {"attacker": [], "defender": []}}
+    battles = {}
+
+    def parse(event, date):
+        def amend_belligerents(key, add, remove, side):
+            belligerents[add][side].append(event[key])
+            if event[key] in belligerents[remove][side]:
+                belligerents[remove][side].remove(event[key])
+
+        match next(iter(event)):
+            # Belligerents
+            case "add_attacker":
+                amend_belligerents(next(iter(event)), "active", "previous", "attacker")
+            case "add_defender":
+                amend_belligerents(next(iter(event)), "active", "previous", "defender")
+            case "rem_attacker":
+                amend_belligerents(next(iter(event)), "previous", "active", "attacker")
+            case "rem_defender":
+                amend_belligerents(next(iter(event)), "previous", "active", "defender")
+            # Battle
+            case "battle":
+                battles[event["battle"]["name"] + " on " + date] = event["battle"]
+                battles[event["battle"]["name"] + " on " + date]["date"] = date
+
+    for d, item in record["history"].items():
+        if type(item) is dict:
+            parse(item, d)
+        else:
+            for subitem in item:
+                parse(subitem, d)
+
+    return belligerents, battles  # TODO: Return war goals
 
 
 if __name__ == "__main__":
-    main = Main()
+    pass
