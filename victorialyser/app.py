@@ -1,3 +1,4 @@
+from pathlib import Path
 import sys
 
 from PIL import Image, ImageDraw
@@ -6,13 +7,13 @@ from PyQt6 import QtWidgets, uic
 from PyQt6.QtCore import QRect
 from PyQt6.QtGui import QIcon, QPixmap, QTransform
 
-from main import *
+from victorialyser import main
 
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("main.ui", self)
+        uic.loadUi(Path("%s/main.ui" % Path(__file__).parent), self)
         self.setFixedWidth(1000)
         self.setFixedHeight(580)
         
@@ -77,21 +78,21 @@ class MainWindow(QtWidgets.QMainWindow):
     def load_file(self, file=None):
         if not file:
             file = str(QtWidgets.QFileDialog.getOpenFileName(self, "Select File")[0])
-        if try_file(file):
+        if main.try_file(file):
             self._hide_all()
-            self.history, self.keys = read_file(file)
+            self.history, self.keys = main.read_file(file)
             self.tag_list.clear()
-            self.tags = read_tags(self.folder, get_tags(self.history, self.keys))
+            self.tags = main.read_tags(self.folder, main.get_tags(self.history, self.keys))
             for tag in self.tags.keys():
                 self.tag_list.addItem(tag)
             self.war_list.clear()
-            self.wars = get_wars(self.history, self.keys)
+            self.wars = main.get_wars(self.history, self.keys)
             self.battle_list.clear()
 
     def load_folder(self, folder=None, tries=0):
         if not folder:
             folder = str(QtWidgets.QFileDialog.getExistingDirectory(self, "Select Folder"))
-        if try_folder(folder):
+        if main.try_folder(folder):
             self.folder = folder
 
             background = ImageQt(Path("%s/gfx/interface/frontend_ms_bg.dds" % self.folder))
@@ -163,7 +164,7 @@ class MainWindow(QtWidgets.QMainWindow):
             wars = []
             for key in self.keys:
                 for war in self.wars[key]:
-                    belligerents, battles = view_war(self.history, war, self.keys)
+                    belligerents, battles = main.view_war(self.history, war, self.keys)
                     for time in belligerents:
                         for side in belligerents[time]:
                             for tag in belligerents[time][side]:
@@ -178,7 +179,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.war_list.currentItem() is None:
             pass
         else:
-            self.belligerents, self.battles = view_war(self.history, self.war_list.currentItem().text(), self.keys)
+            self.belligerents, self.battles = main.view_war(self.history, self.war_list.currentItem().text(), self.keys)
             battles = []
             for battle, data in self.battles.items():
                 battles.append(battle)
@@ -290,7 +291,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 app = QtWidgets.QApplication(sys.argv)
 window = MainWindow()
-preset_file, preset_folder = load_presets()
+preset_file, preset_folder = main.load_presets()
 window.load_folder(preset_folder)
 window.load_file(preset_file)
 window.show()

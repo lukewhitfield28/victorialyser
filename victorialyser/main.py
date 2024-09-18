@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 def load_presets():
-    with open("data.json", 'r') as df:
+    with open(Path("%s/data.json" % Path(__file__).parent), 'r') as df:
         data = json.load(df)
         return data["file"], data["folder"]
 
@@ -13,7 +13,7 @@ def try_file(file):
         with open(file, mode='r', encoding="latin_1") as f:
             for line in f.readlines():
                 if line.find("active_war") != -1 or line.find("previous_war") != -1:
-                    with open("data.json", 'r+') as df:
+                    with open(Path("%s/data.json" % Path(__file__).parent), 'r+') as df:
                         data = json.load(df)
                         data["file"] = file
                         df.seek(0)
@@ -27,7 +27,7 @@ def try_file(file):
 
 def try_folder(folder):
     if Path("%s/42960_install.vdf" % folder).is_file():
-        with open('data.json', 'r+') as df:
+        with open(Path("%s/data.json" % Path(__file__).parent), 'r+') as df:
             data = json.load(df)
             data["folder"] = folder
             df.seek(0)
