@@ -168,9 +168,6 @@
        <property name="text">
         <string/>
        </property>
-       <property name="pixmap">
-        <pixmap resource="background.qrc">:/newPrefix/Screenshot_20240618_205857.png</pixmap>
-       </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
@@ -187,53 +184,62 @@
        <property name="text">
         <string/>
        </property>
-       <property name="pixmap">
-        <pixmap resource="background.qrc">:/newPrefix/Screenshot_20240626_155751.png</pixmap>
-       </property>
       </widget>
       <widget class="QLabel" name="attacker_leader">
        <property name="geometry">
         <rect>
          <x>420</x>
-         <y>220</y>
+         <y>210</y>
          <width>123</width>
-         <height>17</height>
+         <height>34</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <bold>true</bold>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
-        <string>[general]</string>
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QLabel" name="defender_leader">
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>220</y>
-         <width>132</width>
-         <height>17</height>
+         <y>210</y>
+         <width>123</width>
+         <height>34</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <bold>true</bold>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
-        <string>[general]</string>
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QLabel" name="battle_name">
@@ -249,7 +255,7 @@
         <string notr="true">color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
-        <string>[battle]</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -268,7 +274,7 @@
         <string notr="true">color: rgb(0, 170, 0);</string>
        </property>
        <property name="text">
-        <string>[winner]</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -296,7 +302,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -315,7 +321,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -334,7 +340,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -353,7 +359,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -372,7 +378,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -391,7 +397,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -420,7 +426,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -439,7 +445,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -458,7 +464,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -477,7 +483,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -496,7 +502,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -515,7 +521,7 @@
          <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>[num]</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -525,35 +531,608 @@
       <widget class="QPushButton" name="file_button">
        <property name="geometry">
         <rect>
-         <x>720</x>
-         <y>520</y>
-         <width>24</width>
+         <x>827</x>
+         <y>519</y>
+         <width>100</width>
          <height>24</height>
         </rect>
        </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
-        <string/>
+        <string>Load Save</string>
        </property>
        <property name="icon">
         <iconset theme="document-open">
          <normaloff>../../.designer/backup</normaloff>../../.designer/backup</iconset>
        </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QPushButton" name="folder_button">
        <property name="geometry">
         <rect>
-         <x>690</x>
-         <y>520</y>
-         <width>24</width>
+         <x>727</x>
+         <y>519</y>
+         <width>100</width>
          <height>24</height>
         </rect>
        </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
-        <string/>
+        <string>Load Game</string>
        </property>
        <property name="icon">
         <iconset theme="folder-open">
          <normaloff>../../.designer/backup</normaloff>../../.designer/backup</iconset>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="defender_infantry_unit">
+       <property name="geometry">
+        <rect>
+         <x>85</x>
+         <y>301</y>
+         <width>28</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="defender_cavalry_unit">
+       <property name="geometry">
+        <rect>
+         <x>85</x>
+         <y>269</y>
+         <width>28</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="defender_artillery_unit">
+       <property name="geometry">
+        <rect>
+         <x>85</x>
+         <y>332</y>
+         <width>28</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="attacker_cavalry_unit">
+       <property name="geometry">
+        <rect>
+         <x>551</x>
+         <y>269</y>
+         <width>28</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="attacker_infantry_unit">
+       <property name="geometry">
+        <rect>
+         <x>551</x>
+         <y>301</y>
+         <width>28</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="attacker_artillery_unit">
+       <property name="geometry">
+        <rect>
+         <x>551</x>
+         <y>332</y>
+         <width>28</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="defender_initial_label">
+       <property name="geometry">
+        <rect>
+         <x>124</x>
+         <y>252</y>
+         <width>66</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Initial</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="attacker_initial_label">
+       <property name="geometry">
+        <rect>
+         <x>473</x>
+         <y>252</y>
+         <width>66</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Initial</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="defender_casualties_label">
+       <property name="geometry">
+        <rect>
+         <x>191</x>
+         <y>252</y>
+         <width>66</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Casualties</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="attacker_casualties_label">
+       <property name="geometry">
+        <rect>
+         <x>406</x>
+         <y>252</y>
+         <width>66</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Casualties</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="attacker_survivors_label">
+       <property name="geometry">
+        <rect>
+         <x>339</x>
+         <y>252</y>
+         <width>66</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Survivors</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="defender_survivors_label">
+       <property name="geometry">
+        <rect>
+         <x>258</x>
+         <y>252</y>
+         <width>66</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Survivors</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="defender_transports">
+       <property name="geometry">
+        <rect>
+         <x>83</x>
+         <y>332</y>
+         <width>32</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="defender_light_ships">
+       <property name="geometry">
+        <rect>
+         <x>83</x>
+         <y>302</y>
+         <width>32</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="defender_heavy_ships">
+       <property name="geometry">
+        <rect>
+         <x>83</x>
+         <y>269</y>
+         <width>32</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="attacker_light_ships">
+       <property name="geometry">
+        <rect>
+         <x>548</x>
+         <y>302</y>
+         <width>32</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="attacker_transports">
+       <property name="geometry">
+        <rect>
+         <x>548</x>
+         <y>332</y>
+         <width>32</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="attacker_heavy_ships">
+       <property name="geometry">
+        <rect>
+         <x>548</x>
+         <y>269</y>
+         <width>32</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="land_battle_won">
+       <property name="geometry">
+        <rect>
+         <x>76</x>
+         <y>126</y>
+         <width>512</width>
+         <height>76</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="land_battle_lost">
+       <property name="geometry">
+        <rect>
+         <x>76</x>
+         <y>126</y>
+         <width>512</width>
+         <height>76</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="naval_battle_lost">
+       <property name="geometry">
+        <rect>
+         <x>76</x>
+         <y>126</y>
+         <width>512</width>
+         <height>76</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="naval_battle_won">
+       <property name="geometry">
+        <rect>
+         <x>76</x>
+         <y>126</y>
+         <width>512</width>
+         <height>76</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="defender_flag">
+       <property name="geometry">
+        <rect>
+         <x>82</x>
+         <y>132</y>
+         <width>44</width>
+         <height>64</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="attacker_flag">
+       <property name="geometry">
+        <rect>
+         <x>537</x>
+         <y>132</y>
+         <width>44</width>
+         <height>64</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
       <zorder>background</zorder>
@@ -567,13 +1146,36 @@
       <zorder>war_label</zorder>
       <zorder>war_list</zorder>
       <zorder>battle_label</zorder>
-      <zorder>layoutWidget</zorder>
       <zorder>file_button</zorder>
       <zorder>folder_button</zorder>
       <zorder>attacker_leader</zorder>
       <zorder>defender_leader</zorder>
       <zorder>battle_name</zorder>
       <zorder>winner</zorder>
+      <zorder>defender_infantry_unit</zorder>
+      <zorder>defender_cavalry_unit</zorder>
+      <zorder>defender_artillery_unit</zorder>
+      <zorder>attacker_cavalry_unit</zorder>
+      <zorder>attacker_infantry_unit</zorder>
+      <zorder>attacker_artillery_unit</zorder>
+      <zorder>defender_initial_label</zorder>
+      <zorder>attacker_initial_label</zorder>
+      <zorder>defender_casualties_label</zorder>
+      <zorder>attacker_casualties_label</zorder>
+      <zorder>attacker_survivors_label</zorder>
+      <zorder>defender_survivors_label</zorder>
+      <zorder>defender_transports</zorder>
+      <zorder>defender_light_ships</zorder>
+      <zorder>defender_heavy_ships</zorder>
+      <zorder>attacker_light_ships</zorder>
+      <zorder>attacker_transports</zorder>
+      <zorder>attacker_heavy_ships</zorder>
+      <zorder>land_battle_won</zorder>
+      <zorder>land_battle_lost</zorder>
+      <zorder>naval_battle_lost</zorder>
+      <zorder>naval_battle_won</zorder>
+      <zorder>defender_flag</zorder>
+      <zorder>attacker_flag</zorder>
      </widget>
     </item>
    </layout>
@@ -591,6 +1193,7 @@
  </widget>
  <resources>
   <include location="background.qrc"/>
+  <include location="../../.designer/backup/background.qrc"/>
  </resources>
  <connections/>
 </ui>
