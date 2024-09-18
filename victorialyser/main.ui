@@ -37,7 +37,7 @@
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: transparent;</string>
+        <string notr="true">background-color: transparent;color: rgb(255, 255, 255);</string>
        </property>
       </widget>
       <widget class="QLabel" name="details_label">
@@ -77,7 +77,7 @@
         <bool>false</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: transparent;</string>
+        <string notr="true">background-color: transparent;color: rgb(255, 255, 255);</string>
        </property>
       </widget>
       <widget class="QLabel" name="tag_label">
@@ -132,7 +132,7 @@
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: transparent;</string>
+        <string notr="true">background-color: transparent;color: rgb(255, 255, 255);</string>
        </property>
       </widget>
       <widget class="QLabel" name="battle_label">
@@ -541,7 +541,7 @@
         <bool>false</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Load Save</string>
@@ -570,7 +570,7 @@
         <bool>false</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Load Game</string>
@@ -1192,7 +1192,6 @@
   </widget>
  </widget>
  <resources>
-  <include location="background.qrc"/>
   <include location="../../.designer/backup/background.qrc"/>
  </resources>
  <connections/>
