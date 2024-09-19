@@ -15,8 +15,10 @@ Otherwise, please use the Windows Store.
 Python 3 is likely already installed. If not, install it using your preferred package manager.
 
 # Installation
-## Recommended
-### pipx
+## Releases
+Go to the latest release, then download the file associated with your operating system. Extract the file, then run the executable within to use the application.
+
+## pipx
 The pipx project allows you to easily install the application in an isolated virtual environment, adding victorialyser to your $PATH for ease of use. 
 
 If pipx is not already installed on your system, please install it using the instructions found on the [official GitHub repository](https://github.com/pypa/pipx).
@@ -47,7 +49,7 @@ pipx ensurepath
 victorialyser
 ```
 
-These are loose instructions. For example, you may have to call pipx directly by finding where the executable is installed. You can also create your own virtual environment, or run the scripts in a variety of other ways per your discretion. If you need help, please don't hesitate to ask and I'll aim to help you as soon as possible. In the future, I hope to release executable binaries to make the process easier.
+These are loose instructions. For example, you may have to call pipx directly by finding where the executable is installed. You can also create your own virtual environment, or run the scripts in a variety of other ways per your discretion. If you need help, please don't hesitate to ask and I'll aim to help you as soon as possible.
 
 # Usage
 On first launch, you will first be prompted to select the folder containing your Victoria 2 installation. This folder is almost certainly called Victoria 2 and found in a directory such as "../steam/steamapps/common/Victoria 2." 
