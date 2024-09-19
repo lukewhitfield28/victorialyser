@@ -2,6 +2,8 @@
 
 A portmanteau of "Victoria 2" and "Analyser".
 
+![victorialyser screenshot](https://i.imgur.com/2k6yEOt.png)
+
 Inspired by [VickyWarAnalyzer](https://github.com/TKasekamp/VickyWarAnalyzer), this Victoria 2 save game analyser provides a modern method of reading war data from your playthroughs as you might during an AAR. Like he who inspired the project, this began as a learning opportunity but has developed into a workable project with further development planned.
 
 # Requirements
