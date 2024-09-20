@@ -29,6 +29,9 @@ class MainWindow(QtWidgets.QMainWindow):
         # Assign callbacks
         self.file_button.clicked.connect(self.load_file)
         self.folder_button.clicked.connect(self.load_folder)
+        self.tag_search.textChanged.connect(lambda: self.filter_list(self.tag_list, self.tag_search))
+        self.war_search.textChanged.connect(lambda: self.filter_list(self.war_list, self.war_search))
+        self.battle_search.textChanged.connect(lambda: self.filter_list(self.battle_list, self.battle_search))
         self.tag_list.currentItemChanged.connect(self.select_tag)
         self.war_list.currentItemChanged.connect(self.select_war)
         self.battle_list.currentItemChanged.connect(self.select_battle)
@@ -156,6 +159,14 @@ class MainWindow(QtWidgets.QMainWindow):
             tries += 1
             if tries < 3:
                 self.load_folder(tries=tries)
+
+    @staticmethod
+    def filter_list(list_items, search):
+        for item in range(list_items.count()):
+            if search.text().lower() in list_items.item(item).text().lower():
+                list_items.item(item).setHidden(False)
+            else:
+                list_items.item(item).setHidden(True)
 
     def select_tag(self):
         if self.tag_list.currentItem() is None:

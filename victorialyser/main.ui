@@ -104,7 +104,7 @@
         <string notr="true">color: black</string>
        </property>
        <property name="text">
-        <string>Nation</string>
+        <string>Nation:</string>
        </property>
       </widget>
       <widget class="QLabel" name="war_label">
@@ -125,7 +125,7 @@
         <string notr="true">color: black</string>
        </property>
        <property name="text">
-        <string>War</string>
+        <string>War:</string>
        </property>
       </widget>
       <widget class="QListWidget" name="war_list">
@@ -162,7 +162,7 @@
         <string notr="true">color: black</string>
        </property>
        <property name="text">
-        <string>Battle</string>
+        <string>Battle:</string>
        </property>
       </widget>
       <widget class="QLabel" name="background">
@@ -1144,6 +1144,63 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+      <widget class="QLineEdit" name="tag_search">
+       <property name="geometry">
+        <rect>
+         <x>750</x>
+         <y>13</y>
+         <width>142</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(0, 0, 0, 50);
+color: rgb(0, 0, 0);</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="war_search">
+       <property name="geometry">
+        <rect>
+         <x>733</x>
+         <y>189</y>
+         <width>159</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(0, 0, 0, 50);
+color: rgb(0, 0, 0);</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="battle_search">
+       <property name="geometry">
+        <rect>
+         <x>746</x>
+         <y>322</y>
+         <width>146</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(0, 0, 0, 50);
+color: rgb(0, 0, 0);</string>
+       </property>
+      </widget>
       <zorder>background</zorder>
       <zorder>battle_background</zorder>
       <zorder>attacker_losses</zorder>
@@ -1185,6 +1242,9 @@
       <zorder>naval_battle_won</zorder>
       <zorder>defender_flag</zorder>
       <zorder>attacker_flag</zorder>
+      <zorder>tag_search</zorder>
+      <zorder>war_search</zorder>
+      <zorder>battle_search</zorder>
      </widget>
     </item>
    </layout>
@@ -1200,6 +1260,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../background.qrc"/>
+ </resources>
  <connections/>
 </ui>
