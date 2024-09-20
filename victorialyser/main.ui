@@ -39,6 +39,9 @@
        <property name="styleSheet">
         <string notr="true">background-color: transparent;color: rgb(255, 255, 255);</string>
        </property>
+       <property name="sortingEnabled">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QLabel" name="details_label">
        <property name="geometry">
@@ -78,6 +81,9 @@
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: transparent;color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
        </property>
       </widget>
       <widget class="QLabel" name="tag_label">
@@ -133,6 +139,9 @@
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: transparent;color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
        </property>
       </widget>
       <widget class="QLabel" name="battle_label">
@@ -1191,8 +1200,6 @@
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="../../.designer/backup/background.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
