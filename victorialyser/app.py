@@ -25,6 +25,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.wars = {}
         self.battles = {}
         self.belligerents = {}
+        self.war_goals = []
 
         # Assign callbacks
         self.file_button.clicked.connect(self.load_file)
@@ -175,7 +176,7 @@ class MainWindow(QtWidgets.QMainWindow):
             wars = []
             for key in self.keys:
                 for war in self.wars[key]:
-                    belligerents, battles = main.view_war(self.history, war, self.keys)
+                    belligerents, battles, war_goals = main.view_war(self.history, war, self.keys)
                     for time in belligerents:
                         for side in belligerents[time]:
                             for tag in belligerents[time][side]:
@@ -190,7 +191,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.war_list.currentItem() is None:
             pass
         else:
-            self.belligerents, self.battles = main.view_war(self.history, self.war_list.currentItem().text(), self.keys)
+            self.belligerents, self.battles, self.war_goals = main.view_war(self.history, self.war_list.currentItem().text(), self.keys)
             battles = []
             for battle, data in self.battles.items():
                 battles.append(battle)

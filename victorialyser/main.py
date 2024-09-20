@@ -190,6 +190,7 @@ def view_war(history, war, keys):
 
     belligerents = {"active": {"attacker": [], "defender": []}, "previous": {"attacker": [], "defender": []}}
     battles = {}
+    war_goals = []
 
     def parse(event, date):
         def amend_belligerents(key, add, remove, side):
@@ -213,6 +214,12 @@ def view_war(history, war, keys):
                 # Battle
                 case "battle":
                     battles[event["battle"]["name"] + " on " + date] = event["battle"]
+                # War Goals
+                case "war_goal":
+                    war_goals.append(event["war_goal"])
+
+    if len(record["original_wargoal"]) > 0:
+        war_goals.insert(0, record["original_wargoal"])
 
     for d, item in record["history"].items():
         if type(item) is dict:
@@ -221,7 +228,7 @@ def view_war(history, war, keys):
             for subitem in item:
                 parse(subitem, d)
 
-    return belligerents, battles  # TODO: Return war goals
+    return belligerents, battles, war_goals
 
 
 if __name__ == "__main__":
