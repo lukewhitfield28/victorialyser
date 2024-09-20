@@ -265,6 +265,15 @@ class MainWindow(QtWidgets.QMainWindow):
                 losses_labels[s][1].setText("-%s" % str(this_battle[s]["losses"]))
                 losses_labels[s][2].setText(str(these_initial_units[s] - this_battle[s]["losses"]))
 
+            # Display stack-wipe
+            if self.defender_casualties.text() == "-0" and self.attacker_casualties.text() == "-0":
+                if this_battle["result"] == "yes":
+                    self.defender_casualties.setText("Stack Wipe")
+                    self.defender_survivors.setText("0")
+                else:
+                    self.attacker_casualties.setText("Stack Wipe")
+                    self.attacker_survivors.setText("0")
+
             # Display graphics
             naval = False
             for unit_type in heavy_ship_types + light_ship_types + transport_types:
