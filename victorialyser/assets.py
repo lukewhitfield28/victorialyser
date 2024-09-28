@@ -20,12 +20,19 @@ def get_assets(folder):
     assets["button"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/diplo_addtowar.dds" % folder))))
 
     # Pixmaps
+    ## Backgrounds
     assets["main_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/frontend_ms_bg.dds" % folder)))
     assets["fin_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_bg.dds" % folder)))
+    assets["settings_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/menu.dds" % folder)))
+    ## Banners
     assets["land_battle_won"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_land_won.dds" % folder)))
     assets["land_battle_lost"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_land_lost.dds" % folder)))
     assets["naval_battle_won"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_naval_won.dds" % folder)))
     assets["naval_battle_lost"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_naval_lost.dds" % folder)))
+    ## Buttons
+    assets["btn_std_200"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/button_standard_200.dds" % folder)))
+    assets["btn_thin_160"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/button_thin_160.tga" % folder)))
+
 
     # Units
     assets["cavalry"] = _draw_units(Path("%s/gfx/interface/unit_folder_army_2_cavalry.dds" % folder),

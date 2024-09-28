@@ -1180,6 +1180,98 @@ selection-background-color: rgba(255, 255, 255, 55);</string>
      <string>Battle:</string>
     </property>
    </widget>
+   <widget class="QWidget" name="settingswidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>155</x>
+      <y>80</y>
+      <width>352</width>
+      <height>432</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="settings_bg">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>352</width>
+       <height>432</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="close_btn">
+     <property name="geometry">
+      <rect>
+       <x>96</x>
+       <y>360</y>
+       <width>160</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Close</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="close_btn_img">
+     <property name="geometry">
+      <rect>
+       <x>96</x>
+       <y>360</y>
+       <width>160</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="load_folder_btn">
+     <property name="geometry">
+      <rect>
+       <x>76</x>
+       <y>120</y>
+       <width>200</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Load Game</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="load_folder_btn_img">
+     <property name="geometry">
+      <rect>
+       <x>76</x>
+       <y>120</y>
+       <width>200</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <zorder>settings_bg</zorder>
+    <zorder>close_btn_img</zorder>
+    <zorder>close_btn</zorder>
+    <zorder>load_folder_btn_img</zorder>
+    <zorder>load_folder_btn</zorder>
+   </widget>
   </widget>
  </widget>
  <resources>

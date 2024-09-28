@@ -34,7 +34,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.war_list.currentItemChanged.connect(self.select_war)
         self.battle_list.currentItemChanged.connect(self.select_battle)
         self.load_btn.clicked.connect(self.load_file)
-        self.settings_btn.clicked.connect(self.load_folder)
+        self.settings_btn.clicked.connect(
+            lambda: self.settingswidget.show() if self.settingswidget.isHidden() else self.settingswidget.hide())
+        self.load_folder_btn.clicked.connect(self.load_folder)
+        self.close_btn.clicked.connect(lambda: self.settingswidget.hide())
+
+        # Hide windows
+        self.settingswidget.hide()
 
     def load_file(self, file=None):
         if not file:
@@ -57,8 +63,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.assets = assets.get_assets(self.folder)
             self.main_bg.setPixmap(self.assets["main_bg"])
             self.fin_bg.setPixmap(self.assets["fin_bg"])
+            self.settings_bg.setPixmap(self.assets["settings_bg"])
             self.load_btn.setIcon(self.assets["button"])
             self.settings_btn.setIcon(self.assets["button"])
+            self.load_folder_btn_img.setPixmap(self.assets["btn_std_200"])
+            self.close_btn_img.setPixmap(self.assets["btn_thin_160"])
             self.banners = {"land": {"won": self.assets["land_battle_won"], "lost": self.assets["land_battle_lost"]},
                             "naval": {"won": self.assets["naval_battle_won"], "lost": self.assets["naval_battle_lost"]}}
             self.units = {"land":[self.assets["cavalry"], self.assets["infantry"], self.assets["artillery"]],
