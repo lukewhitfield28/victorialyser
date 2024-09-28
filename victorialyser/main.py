@@ -1,235 +1,218 @@
-import json
 from pathlib import Path
+import sys
+
+from PIL.ImageQt import ImageQt
+from PyQt6 import QtWidgets, uic
+from PyQt6.QtGui import QPixmap, QTransform
+
+from victorialyser import assets, console
 
 
-def load_presets():
-    with open(Path("%s/data.json" % Path(__file__).parent), 'r') as df:
-        data = json.load(df)
-        return data["file"], data["folder"]
+class MainWindow(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi(Path("%s/main.ui" % Path(__file__).parent), self)
+        
+        # Define attributes
+        self.assets = dict()
+        self.banners = dict()
+        self.units = dict()
+        self.folder = str()
+        self.history = str()
+        self.keys = list()
+        self.tags = dict()
+        self.wars = dict()
+        self.battles = dict()
+        self.belligerents = dict()
+        self.war_goals = list()
 
+        # Assign callbacks
+        self.tag_edit.textChanged.connect(lambda: self.filter_list(self.tag_list, self.tag_edit))
+        self.war_edit.textChanged.connect(lambda: self.filter_list(self.war_list, self.war_edit))
+        self.battle_edit.textChanged.connect(lambda: self.filter_list(self.battle_list, self.battle_edit))
+        self.tag_list.currentItemChanged.connect(self.select_tag)
+        self.war_list.currentItemChanged.connect(self.select_war)
+        self.battle_list.currentItemChanged.connect(self.select_battle)
+        self.load_btn.clicked.connect(self.load_file)
+        self.settings_btn.clicked.connect(self.load_folder)
 
-def try_file(file):
-    if Path(file).is_file():
-        with open(file, mode='r', encoding="latin_1") as f:
-            for line in f.readlines():
-                if line.find("active_war") != -1 or line.find("previous_war") != -1:
-                    with open(Path("%s/data.json" % Path(__file__).parent), 'r+') as df:
-                        data = json.load(df)
-                        data["file"] = file
-                        df.seek(0)
-                        json.dump(data, df)
-                        df.truncate()
-                    return True
-        return False
-    else:
-        return False
+    def load_file(self, file=None):
+        if not file:
+            file = str(QtWidgets.QFileDialog.getOpenFileName(self, "Select File")[0])
+        if console.try_file(file):
+            self.history, self.keys = console.read_file(file)
+            self.tag_list.clear()
+            self.tags = console.read_tags(self.folder, console.get_tags(self.history, self.keys))
+            for tag in self.tags.keys():
+                self.tag_list.addItem(tag)
+            self.war_list.clear()
+            self.wars = console.get_wars(self.history, self.keys)
+            self.battle_list.clear()
 
+    def load_folder(self, folder=None, tries=0):
+        if not folder:
+            folder = str(QtWidgets.QFileDialog.getExistingDirectory(self, "Select Folder"))
+        if console.try_folder(folder):
+            self.folder = folder
+            self.assets = assets.get_assets(self.folder)
+            self.main_bg.setPixmap(self.assets["main_bg"])
+            self.fin_bg.setPixmap(self.assets["fin_bg"])
+            self.load_btn.setIcon(self.assets["button"])
+            self.settings_btn.setIcon(self.assets["button"])
+            self.banners = {"land": {"won": self.assets["land_battle_won"], "lost": self.assets["land_battle_lost"]},
+                            "naval": {"won": self.assets["naval_battle_won"], "lost": self.assets["naval_battle_lost"]}}
+            self.units = {"land":[self.assets["cavalry"], self.assets["infantry"], self.assets["artillery"]],
+                          "naval":[self.assets["heavy_ships"], self.assets["light_ships"], self.assets["transports"]]}
+        else:
+            tries += 1
+            if tries < 3:
+                self.load_folder(tries=tries)
 
-def try_folder(folder):
-    if Path("%s/42960_install.vdf" % folder).is_file():
-        with open(Path("%s/data.json" % Path(__file__).parent), 'r+') as df:
-            data = json.load(df)
-            data["folder"] = folder
-            df.seek(0)
-            json.dump(data, df)
-        return True
-    else:
-        return False
+    @staticmethod
+    def filter_list(list_items, search):
+        for item in range(list_items.count()):
+            if search.text().lower() in list_items.item(item).text().lower():
+                list_items.item(item).setHidden(False)
+            else:
+                list_items.item(item).setHidden(True)
 
+    def select_tag(self):
+        if self.tag_list.currentItem() is None:
+            pass
+        else:
+            wars = []
+            for key in self.keys:
+                for war in self.wars[key]:
+                    belligerents, battles, war_goals = console.view_war(self.history, war, self.keys)
+                    for time in belligerents:
+                        for side in belligerents[time]:
+                            for tag in belligerents[time][side]:
+                                if tag == self.tags[self.tag_list.currentItem().text()]:
+                                    wars.append(war)
+                                    break
+            self.battle_list.clear()
+            self.war_list.clear()
+            self.war_list.addItems(wars)
 
-def read_file(file):
-    with open(file, mode='r', encoding="latin_1") as f:
-        content = f.readlines()
-        start, end = 0, 0
+    def select_war(self):
+        if self.war_list.currentItem() is None:
+            pass
+        else:
+            self.belligerents, self.battles, self.war_goals = console.view_war(self.history, self.war_list.currentItem().text(), self.keys)
+            battles = []
+            for battle, data in self.battles.items():
+                battles.append(battle)
+            self.battle_list.clear()
+            self.battle_list.addItems(battles)
 
-        active_wars = False
-        for line in content:
-            if line.find("active_war") != -1:
-                start = content.index(line)
-                keys = ["active_war", "previous_war"]
-                active_wars = True
-                break
-        if not active_wars:
-            for line in content:
-                if line.find("previous_war") != -1:
-                    start = content.index(line)
-                    keys = ["previous_war"]
+    def select_battle(self):
+        if self.battle_list.currentItem() is None:
+            pass
+        else:
+            # Assign alias
+            this_battle = self.battles[self.battle_list.currentItem().text()]
+
+            # Display name
+            self.fin_lbl.setText("Battle of " + self.battle_list.currentItem().text())
+
+            # Display leaders
+            self.def_leader_lbl.setText(this_battle["defender"]["leader"])
+            self.atk_leader_lbl.setText(this_battle["attacker"]["leader"])
+
+            # Display winner
+            for tag in self.tags:
+                if self.tags[tag] == this_battle["attacker" if this_battle["result"] == "yes" else "defender"]["country"]:
+                    self.win_lbl.setText("%s Won" % tag)
+
+            # Display losses
+            these_initial_units = {"attacker": 0, "defender": 0}
+
+            def sum_units(initial_units, label, side, unit_types):
+                tally = 0
+                for unit_type in unit_types:
+                    if unit_type in this_battle[side].keys():
+                        tally += this_battle[side][unit_type]
+                label.setText(str(tally))
+                initial_units[side] += tally
+                return initial_units
+
+            cavalry_types = ["cavalry", "cuirassier", "dragoon", "hussar", "plane"]
+            infantry_types = ["infantry", "guard", "irregular"]
+            artillery_types = ["artillery", "engineer", "tank"]
+            heavy_ship_types = ["battleship", "dreadnought", "ironclad", "manowar", "monitor"]
+            light_ship_types = ["commerce_raider", "cruiser", "frigate"]
+            transport_types = ["clipper_transport", "steam_transport"]
+
+            all_unit_types = [
+                {
+                    "attacker": self.atk_cav_fig,
+                    "defender": self.def_cav_fig,
+                    "unit_types": cavalry_types + heavy_ship_types
+                },
+                {
+                    "attacker": self.atk_inf_fig,
+                    "defender": self.def_inf_fig,
+                    "unit_types": infantry_types + light_ship_types
+                },
+                {
+                    "attacker": self.atk_art_fig,
+                    "defender": self.def_art_fig,
+                    "unit_types": artillery_types + transport_types
+                }
+            ]
+
+            losses_labels = {
+                "attacker": [self.atk_initial_fig, self.atk_casualties_fig, self.atk_survivors_fig],
+                "defender": [self.def_initial_fig, self.def_casualties_fig, self.def_survivors_fig]
+            }
+
+            for s in ["attacker", "defender"]:
+                for types in all_unit_types:
+                    these_initial_units = sum_units(these_initial_units, types[s], s, types["unit_types"])
+                losses_labels[s][0].setText(str(these_initial_units[s]))
+                losses_labels[s][1].setText("-%s" % str(this_battle[s]["losses"]))
+                losses_labels[s][2].setText(str(these_initial_units[s] - this_battle[s]["losses"]))
+
+            # Display stack-wipe
+            if self.def_casualties_fig.text() == "-0" and self.atk_casualties_fig.text() == "-0":
+                if this_battle["result"] == "yes":
+                    self.def_casualties_fig.setText("Stack Wipe")
+                    self.def_survivors_fig.setText("0")
+                else:
+                    self.atk_casualties_fig.setText("Stack Wipe")
+                    self.atk_survivors_fig.setText("0")
+
+            # Display graphics
+            terrain = "land"
+            for unit_type in heavy_ship_types + light_ship_types + transport_types:
+                if unit_type in this_battle["attacker"].keys() or unit_type in this_battle["defender"].keys():
+                    terrain = "naval"
                     break
 
-        for line in content[start:]:
-            if line.find("invention=") != -1:
-                end = content.index(line)
-                break
+            self.banner_img.setPixmap(self.banners[terrain]["won" if this_battle["result"] == "yes" else "lost"])
 
-    history = content[start:end]
+            unit_geo = {"land":({'x':0, 'y':3}, {'x':0, 'y':35}, {'x':0, 'y':66}),
+                        "naval":({'x':0, 'y':4}, {'x':0, 'y':37}, {'x':0, 'y':67})}
+            for i, l in enumerate([self.def_units_lyt, self.atk_units_lyt]):
+                for j, w in enumerate(l.children()):
+                    w.setPixmap(self.units[terrain][j])
+                    w.move(unit_geo[terrain][j]['x'] + (2*i if terrain == "land" else 3*i-1), unit_geo[terrain][j]['y'])
 
-    # Format line-by-line
-    for ln in range(0, len(history)-1):
-        line = history[ln]
-
-        temp = "\""
-        if line[:-2].find("=") == -1:
-            temp += line[:-2].strip() + "\"="
-        else:
-            temp += line[:line.find("=")].strip() + "\"="
-            if line[:-2].find("=\"") == -1:
-                try:  # TODO: Consider if try/except statement can be avoided
-                    int(line[line.find("=") + 1])
-                    temp += line[line.find("=") + 1:].strip()
-                except ValueError:
-                    temp += "\"" + line[line.find("=") + 1:].strip() + "\""
-            else:
-                temp += line[line.find("=") + 1:].strip()
-
-        if len(line.strip()) > 1:  # TODO: Consider moving this to the top of the loop to save processing whitespace
-            history[ln] = temp.strip()
-
-        history[ln] = history[ln].replace("=", ":")
-        if history[ln].strip() != "{" and history[ln+1].strip() != "{" and history[ln+1].strip() != "}":
-            history[ln] += ","
-
-    # Finish formatting JSON String
-    history.insert(0, "{")
-    history.insert(-1, "}")
-    history = ''.join(history)
-
-    # Convert JSON String to Dictionary
-    def merge_duplicates_keys(key_pair):
-        dictionary = {}
-        for key, value in key_pair:
-            if key in dictionary:
-                if type(dictionary[key]) is list:
-                    dictionary[key].append(value)
+            def create_flag(side):
+                path = Path("%s/gfx/flags/%s.tga" % (self.folder, this_battle[side]["country"]))
+                if path.is_file():
+                    return QPixmap.fromImage(ImageQt(path)).transformed(QTransform().rotate(90))
                 else:
-                    dictionary[key] = [dictionary[key], value]
-            else:
-                dictionary[key] = value
-        return dictionary
+                    return QPixmap()
 
-    history = json.loads(history, object_pairs_hook=merge_duplicates_keys)
-    return history, keys
+            self.def_flag_img.setPixmap(create_flag("defender"))
+            self.atk_flag_img.setPixmap(create_flag("attacker"))
 
 
-def _key_dict(dictionary, key):
-    return True if type(dictionary[key]) is dict else False
-
-
-def get_wars(history, keys):
-    wars = {}
-    for key in keys:
-        wars[key] = []
-        if _key_dict(history, key):
-            wars[key].append(history[key]["name"])
-        else:
-            for war in history[key]:
-                wars[key].append(war["name"])
-    return wars
-
-
-def get_record(history, war, key):
-    record = {}
-    if _key_dict(history, key):
-        if history[key]["name"].find(war) != -1:
-            record = history[key]
-    else:
-        for w in history[key]:
-            if w["name"].find(war) != -1:
-                record = w
-                break
-    return record
-
-
-def get_tags(history, keys):
-    tags = []
-
-    def parse_record(record):
-        def parse_event(event):
-            if next(iter(event)) in ["add_attacker", "add_defender", "rem_attacker", "rem_defender"]:
-                if event[next(iter(event))] not in tags:
-                    tags.append(event[next(iter(event))])
-
-        for date, item in record["history"].items():
-            if type(item) is dict:
-                parse_event(item)
-            else:
-                for subitem in item:
-                    parse_event(subitem)
-
-    for key in keys:
-        if _key_dict(history, key):
-            parse_record(history[key])
-        else:
-            for war in history[key]:
-                parse_record(get_record(history, war["name"], key))
-
-    return tags
-
-
-def read_tags(folder, tags):
-    all_tags = {}
-    with open(Path("%s/common/countries.txt" % folder), 'r+') as f:
-        content = f.readlines()
-        for line in content:
-            if line[5:8] == "= \"":
-                all_tags[line[18:line.find(".txt")]] = line[:3]
-            elif line[5:7] == "=\"":
-                all_tags[line[17:line.find(".txt")]] = line[:3]
-        for tag in tags:
-            if tag not in all_tags.values():
-                all_tags[tag] = tag
-    return all_tags
-
-
-def view_war(history, war, keys):
-    if len(keys) == 1:
-        record = get_record(history, war, "previous_war")
-    else:
-        record = get_record(history, war, "active_war")
-        if record == {}:
-            record = get_record(history, war, "previous_war")
-
-    belligerents = {"active": {"attacker": [], "defender": []}, "previous": {"attacker": [], "defender": []}}
-    battles = {}
-    war_goals = []
-
-    def parse(event, date):
-        def amend_belligerents(key, add, remove, side):
-            belligerents[add][side].append(event[key])
-            if event[key] in belligerents[remove][side]:
-                belligerents[remove][side].remove(event[key])
-
-        if date == "battle":  # Battles in previous wars have no date, hence this confusing syntax
-            battles[event["name"]] = event
-        else:
-            match next(iter(event)):
-                # Belligerents
-                case "add_attacker":
-                    amend_belligerents(next(iter(event)), "active", "previous", "attacker")
-                case "add_defender":
-                    amend_belligerents(next(iter(event)), "active", "previous", "defender")
-                case "rem_attacker":
-                    amend_belligerents(next(iter(event)), "previous", "active", "attacker")
-                case "rem_defender":
-                    amend_belligerents(next(iter(event)), "previous", "active", "defender")
-                # Battle
-                case "battle":
-                    battles[event["battle"]["name"] + " on " + date] = event["battle"]
-                # War Goals
-                case "war_goal":
-                    war_goals.append(event["war_goal"])
-
-    if len(record["original_wargoal"]) > 0:
-        war_goals.insert(0, record["original_wargoal"])
-
-    for d, item in record["history"].items():
-        if type(item) is dict:
-            parse(item, d)
-        else:
-            for subitem in item:
-                parse(subitem, d)
-
-    return belligerents, battles, war_goals
-
-
-if __name__ == "__main__":
-    pass
+app = QtWidgets.QApplication(sys.argv)
+window = MainWindow()
+preset_file, preset_folder = console.load_presets()
+window.load_folder(preset_folder)
+window.load_file(preset_file)
+window.show()
+app.exec()

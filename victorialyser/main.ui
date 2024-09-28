@@ -6,1261 +6,1185 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1026</width>
-    <height>647</height>
+    <width>1000</width>
+    <height>580</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>1026</width>
-    <height>647</height>
-   </size>
-  </property>
   <property name="windowTitle">
-   <string>Victorialyser</string>
-  </property>
-  <property name="windowIcon">
-   <iconset theme="applications-games">
-    <normaloff>../../.designer/backup</normaloff>../../.designer/backup</iconset>
+   <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_3">
-    <item>
-     <widget class="QWidget" name="widget" native="true">
-      <widget class="QListWidget" name="tag_list">
-       <property name="geometry">
-        <rect>
-         <x>677</x>
-         <y>34</y>
-         <width>305</width>
-         <height>145</height>
-        </rect>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <widget class="QLabel" name="main_bg">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1000</width>
+      <height>580</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="finwidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>80</y>
+      <width>544</width>
+      <height>436</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="fin_bg">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>544</width>
+       <height>436</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="fin_lbl">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>20</y>
+       <width>501</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>fin_lbl</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="banner_img">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>46</y>
+       <width>508</width>
+       <height>72</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>banner_img</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="def_flag_img">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>49</y>
+       <width>45</width>
+       <height>66</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>5</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="text">
+      <string>def_flag_img</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="atk_flag_img">
+     <property name="geometry">
+      <rect>
+       <x>477</x>
+       <y>49</y>
+       <width>45</width>
+       <height>66</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>5</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="text">
+      <string>atk_flag_img</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="def_leader_lbl">
+     <property name="geometry">
+      <rect>
+       <x>55</x>
+       <y>125</y>
+       <width>134</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>def_leader_lbl</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="atk_leader_lbl">
+     <property name="geometry">
+      <rect>
+       <x>354</x>
+       <y>125</y>
+       <width>134</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>atk_leader_lbl</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="win_lbl">
+     <property name="geometry">
+      <rect>
+       <x>185</x>
+       <y>331</y>
+       <width>173</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 170, 0);</string>
+     </property>
+     <property name="text">
+      <string>win_lbl</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="atk_survivors_lbl">
+     <property name="geometry">
+      <rect>
+       <x>282</x>
+       <y>174</y>
+       <width>60</width>
+       <height>8</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Survivors</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="atk_initial_lbl">
+     <property name="geometry">
+      <rect>
+       <x>416</x>
+       <y>174</y>
+       <width>60</width>
+       <height>8</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Initial</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="def_survivors_lbl">
+     <property name="geometry">
+      <rect>
+       <x>201</x>
+       <y>174</y>
+       <width>60</width>
+       <height>8</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Survivors</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="def_casualties_lbl">
+     <property name="geometry">
+      <rect>
+       <x>134</x>
+       <y>174</y>
+       <width>60</width>
+       <height>8</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Casualties</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="def_initial_lbl">
+     <property name="geometry">
+      <rect>
+       <x>67</x>
+       <y>174</y>
+       <width>60</width>
+       <height>8</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Initial</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="atk_casualties_lbl">
+     <property name="geometry">
+      <rect>
+       <x>349</x>
+       <y>174</y>
+       <width>60</width>
+       <height>8</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Casualties</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QWidget" name="def_units_lyt" native="true">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>185</y>
+       <width>39</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="def_cav_img">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-2</y>
+        <width>39</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>5</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>def_cav_img</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="def_art_img">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>60</y>
+        <width>39</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>5</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>def_art_img</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="def_inf_img">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>29</y>
+        <width>39</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>5</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>def_inf_img</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="atk_units_lyt" native="true">
+     <property name="geometry">
+      <rect>
+       <x>483</x>
+       <y>185</y>
+       <width>39</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="atk_inf_img">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>29</y>
+        <width>39</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>5</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>atk_inf_img</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="atk_art_img">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>60</y>
+        <width>39</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>5</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>atk_art_img</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="atk_cav_img">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>39</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>5</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>atk_cav_img</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>67</x>
+       <y>189</y>
+       <width>194</width>
+       <height>127</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="def_fig_lyt" columnstretch="0,0,0">
+      <item row="2" column="0">
+       <widget class="QLabel" name="def_art_fig">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="def_cav_fig">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLabel" name="def_survivors_fig">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="def_inf_fig">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="def_casualties_fig">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>-0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="def_initial_fig">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>282</x>
+       <y>189</y>
+       <width>194</width>
+       <height>127</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="atk_fig_lyt" columnstretch="0,0,0">
+      <item row="3" column="2">
+       <widget class="QLabel" name="atk_art_fig">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="atk_cav_fig">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="atk_inf_fig">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLabel" name="atk_initial_fig">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLabel" name="atk_casualties_fig">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>-0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="atk_survivors_fig">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <zorder>fin_bg</zorder>
+    <zorder>fin_lbl</zorder>
+    <zorder>banner_img</zorder>
+    <zorder>def_flag_img</zorder>
+    <zorder>atk_flag_img</zorder>
+    <zorder>def_leader_lbl</zorder>
+    <zorder>atk_leader_lbl</zorder>
+    <zorder>win_lbl</zorder>
+    <zorder>def_survivors_lbl</zorder>
+    <zorder>def_casualties_lbl</zorder>
+    <zorder>def_initial_lbl</zorder>
+    <zorder>atk_casualties_lbl</zorder>
+    <zorder>atk_initial_lbl</zorder>
+    <zorder>atk_survivors_lbl</zorder>
+    <zorder>def_units_lyt</zorder>
+    <zorder>atk_units_lyt</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>layoutWidget_2</zorder>
+   </widget>
+   <widget class="QListWidget" name="war_list">
+    <property name="geometry">
+     <rect>
+      <x>676</x>
+      <y>211</y>
+      <width>307</width>
+      <height>98</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+selection-background-color: rgba(255, 255, 255, 55);</string>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>693</x>
+      <y>517</y>
+      <width>273</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="options_lyt">
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="details_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: transparent;color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="sortingEnabled">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="details_label">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>12</y>
-         <width>236</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: black</string>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
        </property>
        <property name="text">
-        <string>Details</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        <string>Swap View</string>
        </property>
       </widget>
-      <widget class="QListWidget" name="battle_list">
-       <property name="geometry">
-        <rect>
-         <x>677</x>
-         <y>343</y>
-         <width>305</width>
-         <height>145</height>
-        </rect>
+     </item>
+     <item>
+      <widget class="QPushButton" name="load_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: transparent;color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="sortingEnabled">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="tag_label">
-       <property name="geometry">
-        <rect>
-         <x>700</x>
-         <y>12</y>
-         <width>206</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: black</string>
-       </property>
-       <property name="text">
-        <string>Nation:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="war_label">
-       <property name="geometry">
-        <rect>
-         <x>700</x>
-         <y>188</y>
-         <width>206</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: black</string>
-       </property>
-       <property name="text">
-        <string>War:</string>
-       </property>
-      </widget>
-      <widget class="QListWidget" name="war_list">
-       <property name="geometry">
-        <rect>
-         <x>677</x>
-         <y>210</y>
-         <width>305</width>
-         <height>102</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: transparent;color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="sortingEnabled">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="battle_label">
-       <property name="geometry">
-        <rect>
-         <x>700</x>
-         <y>321</y>
-         <width>206</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: black</string>
-       </property>
-       <property name="text">
-        <string>Battle:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="background">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>1000</width>
-         <height>580</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="battle_background">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>82</y>
-         <width>544</width>
-         <height>436</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_leader">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>210</y>
-         <width>123</width>
-         <height>34</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="scaledContents">
-        <bool>false</bool>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="defender_leader">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>210</y>
-         <width>123</width>
-         <height>34</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="scaledContents">
-        <bool>false</bool>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="battle_name">
-       <property name="geometry">
-        <rect>
-         <x>77</x>
-         <y>99</y>
-         <width>509</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="winner">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>410</y>
-         <width>163</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 170, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QWidget" name="defender_losses" native="true">
-       <property name="geometry">
-        <rect>
-         <x>124</x>
-         <y>268</y>
-         <width>200</width>
-         <height>133</height>
-        </rect>
-       </property>
-       <widget class="QLabel" name="defender_infantry">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>31</y>
-          <width>66</width>
-          <height>30</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="defender_initial">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>93</y>
-          <width>66</width>
-          <height>40</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="defender_casualties">
-        <property name="geometry">
-         <rect>
-          <x>67</x>
-          <y>93</y>
-          <width>66</width>
-          <height>40</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="defender_survivors">
-        <property name="geometry">
-         <rect>
-          <x>134</x>
-          <y>93</y>
-          <width>66</width>
-          <height>40</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="defender_artillery">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>62</y>
-          <width>66</width>
-          <height>30</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="defender_cavalry">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>66</width>
-          <height>30</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="attacker_losses" native="true">
-       <property name="geometry">
-        <rect>
-         <x>339</x>
-         <y>268</y>
-         <width>200</width>
-         <height>133</height>
-        </rect>
-       </property>
-       <widget class="QLabel" name="attacker_initial">
-        <property name="geometry">
-         <rect>
-          <x>134</x>
-          <y>93</y>
-          <width>66</width>
-          <height>40</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="attacker_survivors">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>93</y>
-          <width>66</width>
-          <height>40</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="attacker_infantry">
-        <property name="geometry">
-         <rect>
-          <x>134</x>
-          <y>31</y>
-          <width>66</width>
-          <height>30</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="attacker_casualties">
-        <property name="geometry">
-         <rect>
-          <x>67</x>
-          <y>93</y>
-          <width>66</width>
-          <height>40</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="attacker_artillery">
-        <property name="geometry">
-         <rect>
-          <x>134</x>
-          <y>62</y>
-          <width>66</width>
-          <height>30</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="attacker_cavalry">
-        <property name="geometry">
-         <rect>
-          <x>134</x>
-          <y>0</y>
-          <width>66</width>
-          <height>30</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QPushButton" name="file_button">
-       <property name="geometry">
-        <rect>
-         <x>827</x>
-         <y>519</y>
-         <width>100</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
        </property>
        <property name="text">
         <string>Load Save</string>
        </property>
-       <property name="icon">
-        <iconset theme="document-open">
-         <normaloff>../../.designer/backup</normaloff>../../.designer/backup</iconset>
-       </property>
-       <property name="default">
-        <bool>false</bool>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
       </widget>
-      <widget class="QPushButton" name="folder_button">
-       <property name="geometry">
-        <rect>
-         <x>727</x>
-         <y>519</y>
-         <width>100</width>
-         <height>24</height>
-        </rect>
+     </item>
+     <item>
+      <widget class="QPushButton" name="settings_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
        </property>
        <property name="text">
-        <string>Load Game</string>
-       </property>
-       <property name="icon">
-        <iconset theme="folder-open">
-         <normaloff>../../.designer/backup</normaloff>../../.designer/backup</iconset>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
+        <string>Settings</string>
        </property>
       </widget>
-      <widget class="QLabel" name="defender_infantry_unit">
-       <property name="geometry">
-        <rect>
-         <x>85</x>
-         <y>301</y>
-         <width>28</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="defender_cavalry_unit">
-       <property name="geometry">
-        <rect>
-         <x>85</x>
-         <y>269</y>
-         <width>28</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="defender_artillery_unit">
-       <property name="geometry">
-        <rect>
-         <x>85</x>
-         <y>332</y>
-         <width>28</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_cavalry_unit">
-       <property name="geometry">
-        <rect>
-         <x>551</x>
-         <y>269</y>
-         <width>28</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_infantry_unit">
-       <property name="geometry">
-        <rect>
-         <x>551</x>
-         <y>301</y>
-         <width>28</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_artillery_unit">
-       <property name="geometry">
-        <rect>
-         <x>551</x>
-         <y>332</y>
-         <width>28</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="defender_initial_label">
-       <property name="geometry">
-        <rect>
-         <x>124</x>
-         <y>252</y>
-         <width>66</width>
-         <height>15</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Initial</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_initial_label">
-       <property name="geometry">
-        <rect>
-         <x>473</x>
-         <y>252</y>
-         <width>66</width>
-         <height>15</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Initial</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="defender_casualties_label">
-       <property name="geometry">
-        <rect>
-         <x>191</x>
-         <y>252</y>
-         <width>66</width>
-         <height>15</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Casualties</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_casualties_label">
-       <property name="geometry">
-        <rect>
-         <x>406</x>
-         <y>252</y>
-         <width>66</width>
-         <height>15</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Casualties</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_survivors_label">
-       <property name="geometry">
-        <rect>
-         <x>339</x>
-         <y>252</y>
-         <width>66</width>
-         <height>15</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Survivors</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="defender_survivors_label">
-       <property name="geometry">
-        <rect>
-         <x>258</x>
-         <y>252</y>
-         <width>66</width>
-         <height>15</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Survivors</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="defender_transports">
-       <property name="geometry">
-        <rect>
-         <x>83</x>
-         <y>332</y>
-         <width>32</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="defender_light_ships">
-       <property name="geometry">
-        <rect>
-         <x>83</x>
-         <y>302</y>
-         <width>32</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="defender_heavy_ships">
-       <property name="geometry">
-        <rect>
-         <x>83</x>
-         <y>269</y>
-         <width>32</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_light_ships">
-       <property name="geometry">
-        <rect>
-         <x>548</x>
-         <y>302</y>
-         <width>32</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_transports">
-       <property name="geometry">
-        <rect>
-         <x>548</x>
-         <y>332</y>
-         <width>32</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_heavy_ships">
-       <property name="geometry">
-        <rect>
-         <x>548</x>
-         <y>269</y>
-         <width>32</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="land_battle_won">
-       <property name="geometry">
-        <rect>
-         <x>76</x>
-         <y>126</y>
-         <width>512</width>
-         <height>76</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="land_battle_lost">
-       <property name="geometry">
-        <rect>
-         <x>76</x>
-         <y>126</y>
-         <width>512</width>
-         <height>76</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="naval_battle_lost">
-       <property name="geometry">
-        <rect>
-         <x>76</x>
-         <y>126</y>
-         <width>512</width>
-         <height>76</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="naval_battle_won">
-       <property name="geometry">
-        <rect>
-         <x>76</x>
-         <y>126</y>
-         <width>512</width>
-         <height>76</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="defender_flag">
-       <property name="geometry">
-        <rect>
-         <x>82</x>
-         <y>132</y>
-         <width>44</width>
-         <height>64</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="attacker_flag">
-       <property name="geometry">
-        <rect>
-         <x>537</x>
-         <y>132</y>
-         <width>44</width>
-         <height>64</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="tag_search">
-       <property name="geometry">
-        <rect>
-         <x>750</x>
-         <y>13</y>
-         <width>142</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <underline>true</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgba(0, 0, 0, 50);
-color: rgb(0, 0, 0);</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="war_search">
-       <property name="geometry">
-        <rect>
-         <x>733</x>
-         <y>189</y>
-         <width>159</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <underline>true</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgba(0, 0, 0, 50);
-color: rgb(0, 0, 0);</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="battle_search">
-       <property name="geometry">
-        <rect>
-         <x>746</x>
-         <y>322</y>
-         <width>146</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <underline>true</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgba(0, 0, 0, 50);
-color: rgb(0, 0, 0);</string>
-       </property>
-      </widget>
-      <zorder>background</zorder>
-      <zorder>battle_background</zorder>
-      <zorder>attacker_losses</zorder>
-      <zorder>defender_losses</zorder>
-      <zorder>tag_list</zorder>
-      <zorder>details_label</zorder>
-      <zorder>battle_list</zorder>
-      <zorder>tag_label</zorder>
-      <zorder>war_label</zorder>
-      <zorder>war_list</zorder>
-      <zorder>battle_label</zorder>
-      <zorder>file_button</zorder>
-      <zorder>folder_button</zorder>
-      <zorder>attacker_leader</zorder>
-      <zorder>defender_leader</zorder>
-      <zorder>battle_name</zorder>
-      <zorder>winner</zorder>
-      <zorder>defender_infantry_unit</zorder>
-      <zorder>defender_cavalry_unit</zorder>
-      <zorder>defender_artillery_unit</zorder>
-      <zorder>attacker_cavalry_unit</zorder>
-      <zorder>attacker_infantry_unit</zorder>
-      <zorder>attacker_artillery_unit</zorder>
-      <zorder>defender_initial_label</zorder>
-      <zorder>attacker_initial_label</zorder>
-      <zorder>defender_casualties_label</zorder>
-      <zorder>attacker_casualties_label</zorder>
-      <zorder>attacker_survivors_label</zorder>
-      <zorder>defender_survivors_label</zorder>
-      <zorder>defender_transports</zorder>
-      <zorder>defender_light_ships</zorder>
-      <zorder>defender_heavy_ships</zorder>
-      <zorder>attacker_light_ships</zorder>
-      <zorder>attacker_transports</zorder>
-      <zorder>attacker_heavy_ships</zorder>
-      <zorder>land_battle_won</zorder>
-      <zorder>land_battle_lost</zorder>
-      <zorder>naval_battle_lost</zorder>
-      <zorder>naval_battle_won</zorder>
-      <zorder>defender_flag</zorder>
-      <zorder>attacker_flag</zorder>
-      <zorder>tag_search</zorder>
-      <zorder>war_search</zorder>
-      <zorder>battle_search</zorder>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1026</width>
-     <height>22</height>
-    </rect>
-   </property>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QListWidget" name="battle_list">
+    <property name="geometry">
+     <rect>
+      <x>676</x>
+      <y>344</y>
+      <width>307</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+selection-background-color: rgba(255, 255, 255, 55);</string>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="tag_list">
+    <property name="geometry">
+     <rect>
+      <x>676</x>
+      <y>35</y>
+      <width>307</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+selection-background-color: rgba(255, 255, 255, 55);</string>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="record_lbl">
+    <property name="geometry">
+     <rect>
+      <x>44</x>
+      <y>15</y>
+      <width>229</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>41</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Record:</string>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="tag_edit">
+    <property name="geometry">
+     <rect>
+      <x>782</x>
+      <y>15</y>
+      <width>108</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0, 0, 0, 55);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="war_lbl">
+    <property name="geometry">
+     <rect>
+      <x>691</x>
+      <y>191</y>
+      <width>83</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>War:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="war_edit">
+    <property name="geometry">
+     <rect>
+      <x>782</x>
+      <y>191</y>
+      <width>108</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0, 0, 0, 55);</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="battle_edit">
+    <property name="geometry">
+     <rect>
+      <x>782</x>
+      <y>324</y>
+      <width>108</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0, 0, 0, 55);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tag_lbl">
+    <property name="geometry">
+     <rect>
+      <x>691</x>
+      <y>15</y>
+      <width>83</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Nation:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="battle_lbl">
+    <property name="geometry">
+     <rect>
+      <x>691</x>
+      <y>324</y>
+      <width>83</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Battle:</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>
+  <include location="../background.qrc"/>
+  <include location="../background.qrc"/>
   <include location="../background.qrc"/>
  </resources>
  <connections/>

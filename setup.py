@@ -7,7 +7,7 @@ setup(
    install_requires=["pillow", "PyQt6"],
    entry_points={
         'console_scripts': [
-            'victorialyser = victorialyser:app',
+            'victorialyser = victorialyser:main',
         ]
     }
 )
