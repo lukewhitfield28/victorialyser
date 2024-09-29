@@ -846,9 +846,9 @@ selection-background-color: rgba(255, 255, 255, 55);</string>
     <property name="geometry">
      <rect>
       <x>693</x>
-      <y>517</y>
+      <y>510</y>
       <width>273</width>
-      <height>27</height>
+      <height>40</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="options_lyt">
@@ -859,12 +859,18 @@ selection-background-color: rgba(255, 255, 255, 55);</string>
       <number>0</number>
      </property>
      <item>
-      <widget class="QPushButton" name="details_btn">
+      <widget class="QPushButton" name="fin_btn">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -873,17 +879,66 @@ selection-background-color: rgba(255, 255, 255, 55);</string>
         </size>
        </property>
        <property name="text">
-        <string>Swap View</string>
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stats_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="load_btn">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -892,17 +947,32 @@ selection-background-color: rgba(255, 255, 255, 55);</string>
         </size>
        </property>
        <property name="text">
-        <string>Load Save</string>
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="settings_btn">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -911,7 +981,16 @@ selection-background-color: rgba(255, 255, 255, 55);</string>
         </size>
        </property>
        <property name="text">
-        <string>Settings</string>
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -1271,6 +1350,32 @@ selection-background-color: rgba(255, 255, 255, 55);</string>
     <zorder>close_btn</zorder>
     <zorder>load_folder_btn_img</zorder>
     <zorder>load_folder_btn</zorder>
+   </widget>
+   <widget class="QWidget" name="statswidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>83</x>
+      <y>40</y>
+      <width>495</width>
+      <height>525</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="stats_bg">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>495</width>
+       <height>525</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

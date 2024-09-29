@@ -17,12 +17,16 @@ def get_assets(folder):
     assets = dict()
 
     # Icons
-    assets["button"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/diplo_addtowar.dds" % folder))))
+    assets["btn_open"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/checkbox.dds" % folder))).copy(QRect(0, 0, 32, 32)))
+    assets["btn_selected"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/checkbox.dds" % folder))).copy(QRect(32, 0, 32, 32)))
+    assets["save_btn"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/bp_button_save.dds" % folder))))
+    assets["settings_btn"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/bp_button_load.dds" % folder))))
 
     # Pixmaps
     ## Backgrounds
     assets["main_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/frontend_ms_bg.dds" % folder)))
     assets["fin_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_bg.dds" % folder)))
+    assets["stats_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/event_major_background.dds" % folder)))
     assets["settings_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/menu.dds" % folder)))
     ## Banners
     assets["land_battle_won"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_land_won.dds" % folder)))
