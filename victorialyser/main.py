@@ -38,7 +38,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.load_btn.clicked.connect(self.load_file)
         self.settings_btn.clicked.connect(
             lambda: self.settingswidget.show() if self.settingswidget.isHidden() else self.settingswidget.hide())
-        self.load_folder_btn.clicked.connect(self.load_folder)
+        self.load_folder_btn.clicked.connect(lambda: self.load_folder(False))
         self.close_btn.clicked.connect(lambda: self.settingswidget.hide())
 
         # Hide windows
@@ -68,7 +68,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.wars = console.get_wars(self.history, self.keys)
             self.battle_list.clear()
 
-    def load_folder(self, folder=None, tries=0):
+    def load_folder(self, required, folder=None):
         if not folder:
             folder = str(QtWidgets.QFileDialog.getExistingDirectory(self, "Select Folder"))
         if console.try_folder(folder):
@@ -88,10 +88,11 @@ class MainWindow(QtWidgets.QMainWindow):
                             "naval": {"won": self.assets["naval_battle_won"], "lost": self.assets["naval_battle_lost"]}}
             self.units = {"land":[self.assets["cavalry"], self.assets["infantry"], self.assets["artillery"]],
                           "naval":[self.assets["heavy_ships"], self.assets["light_ships"], self.assets["transports"]]}
+        elif folder != "":
+            self.load_folder(required=required)
         else:
-            tries += 1
-            if tries < 3:
-                self.load_folder(tries=tries)
+            if required:
+                sys.exit(0)
 
     @staticmethod
     def filter_list(list_items, search):
@@ -237,7 +238,7 @@ class MainWindow(QtWidgets.QMainWindow):
 app = QtWidgets.QApplication(sys.argv)
 window = MainWindow()
 preset_file, preset_folder = console.load_presets()
-window.load_folder(preset_folder)
+window.load_folder(True, preset_folder)
 window.load_file(preset_file)
 window.show()
 app.exec()
