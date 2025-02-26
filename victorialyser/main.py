@@ -33,8 +33,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.tag_list.currentItemChanged.connect(self.select_tag)
         self.war_list.currentItemChanged.connect(self.select_war)
         self.battle_list.currentItemChanged.connect(self.select_battle)
-        self.fin_btn.clicked.connect(lambda: self.nav(self.finwidget, self.fin_btn))
-        self.stats_btn.clicked.connect(lambda: self.nav(self.statswidget, self.stats_btn))
+        self.swap_btn.clicked.connect(lambda: self.nav(self.finwidget, self.swap_btn))
         self.load_btn.clicked.connect(self.load_file)
         self.settings_btn.clicked.connect(
             lambda: self.settingswidget.show() if self.settingswidget.isHidden() else self.settingswidget.hide())
@@ -42,18 +41,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.close_btn.clicked.connect(lambda: self.settingswidget.hide())
 
         # Hide windows
-        self.widget_windows = [self.finwidget, self.statswidget]
-        self.widget_buttons = [self.fin_btn, self.stats_btn]
         self.statswidget.hide()
         self.settingswidget.hide()
 
     def nav(self, x, y):
-        for w in self.widget_windows:
-            w.hide()
-        for w in self.widget_buttons:
-            w.setIcon(self.assets["btn_open"])
-        x.show()
-        y.setIcon(self.assets["btn_selected"])
+        if self.finwidget.isVisible():
+            self.finwidget.hide()
+            self.statswidget.show()
+        else:
+            self.finwidget.show()
+            self.statswidget.hide()
 
     def load_file(self, file=None):
         if not file:
@@ -78,8 +75,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.fin_bg.setPixmap(self.assets["fin_bg"])
             self.stats_bg.setPixmap(self.assets["stats_bg"])
             self.settings_bg.setPixmap(self.assets["settings_bg"])
-            self.fin_btn.setIcon(self.assets["btn_selected"])
-            self.stats_btn.setIcon(self.assets["btn_open"])
+            self.swap_btn.setIcon(self.assets["swap_btn"])
             self.load_btn.setIcon(self.assets["save_btn"])
             self.settings_btn.setIcon(self.assets["settings_btn"])
             self.load_folder_btn_img.setPixmap(self.assets["btn_std_200"])

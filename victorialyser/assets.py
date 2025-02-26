@@ -17,10 +17,9 @@ def get_assets(folder):
     assets = dict()
 
     # Icons
-    assets["btn_open"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/checkbox.dds" % folder))).copy(QRect(0, 0, 32, 32)))
-    assets["btn_selected"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/checkbox.dds" % folder))).copy(QRect(32, 0, 32, 32)))
     assets["save_btn"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/bp_button_save.dds" % folder))))
     assets["settings_btn"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/bp_button_load.dds" % folder))))
+    assets["swap_btn"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/bp_button_rename.dds" % folder))))
 
     # Pixmaps
     ## Backgrounds
