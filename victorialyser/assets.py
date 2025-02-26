@@ -17,8 +17,8 @@ def get_assets(folder):
     assets = dict()
 
     # Icons
+    assets["game_btn"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/bp_button_load.dds" % folder))))
     assets["save_btn"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/bp_button_save.dds" % folder))))
-    assets["settings_btn"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/bp_button_load.dds" % folder))))
     assets["swap_btn"] = QIcon(QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/bp_button_rename.dds" % folder))))
 
     # Pixmaps
@@ -26,15 +26,11 @@ def get_assets(folder):
     assets["main_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/frontend_ms_bg.dds" % folder)))
     assets["fin_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_bg.dds" % folder)))
     assets["stats_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/event_major_background.dds" % folder)))
-    assets["settings_bg"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/menu.dds" % folder)))
     ## Banners
     assets["land_battle_won"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_land_won.dds" % folder)))
     assets["land_battle_lost"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_land_lost.dds" % folder)))
     assets["naval_battle_won"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_naval_won.dds" % folder)))
     assets["naval_battle_lost"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_naval_lost.dds" % folder)))
-    ## Buttons
-    assets["btn_std_200"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/button_standard_200.dds" % folder)))
-    assets["btn_thin_160"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/button_thin_160.tga" % folder)))
 
 
     # Units

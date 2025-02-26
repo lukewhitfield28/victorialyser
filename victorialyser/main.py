@@ -34,15 +34,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.war_list.currentItemChanged.connect(self.select_war)
         self.battle_list.currentItemChanged.connect(self.select_battle)
         self.swap_btn.clicked.connect(lambda: self.nav(self.finwidget, self.swap_btn))
-        self.load_btn.clicked.connect(self.load_file)
-        self.settings_btn.clicked.connect(
-            lambda: self.settingswidget.show() if self.settingswidget.isHidden() else self.settingswidget.hide())
-        self.load_folder_btn.clicked.connect(lambda: self.load_folder(False))
-        self.close_btn.clicked.connect(lambda: self.settingswidget.hide())
+        self.save_btn.clicked.connect(self.load_file)
+        self.game_btn.clicked.connect(lambda: self.load_folder(False))
 
         # Hide windows
         self.statswidget.hide()
-        self.settingswidget.hide()
 
     def nav(self, x, y):
         if self.finwidget.isVisible():
@@ -74,12 +70,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.main_bg.setPixmap(self.assets["main_bg"])
             self.fin_bg.setPixmap(self.assets["fin_bg"])
             self.stats_bg.setPixmap(self.assets["stats_bg"])
-            self.settings_bg.setPixmap(self.assets["settings_bg"])
             self.swap_btn.setIcon(self.assets["swap_btn"])
-            self.load_btn.setIcon(self.assets["save_btn"])
-            self.settings_btn.setIcon(self.assets["settings_btn"])
-            self.load_folder_btn_img.setPixmap(self.assets["btn_std_200"])
-            self.close_btn_img.setPixmap(self.assets["btn_thin_160"])
+            self.save_btn.setIcon(self.assets["save_btn"])
+            self.game_btn.setIcon(self.assets["game_btn"])
             self.banners = {"land": {"won": self.assets["land_battle_won"], "lost": self.assets["land_battle_lost"]},
                             "naval": {"won": self.assets["naval_battle_won"], "lost": self.assets["naval_battle_lost"]}}
             self.units = {"land":[self.assets["cavalry"], self.assets["infantry"], self.assets["artillery"]],
