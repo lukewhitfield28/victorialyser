@@ -32,7 +32,6 @@ def get_assets(folder):
     assets["naval_battle_won"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_naval_won.dds" % folder)))
     assets["naval_battle_lost"] = QPixmap.fromImage(ImageQt(Path("%s/gfx/interface/combat_end_naval_lost.dds" % folder)))
 
-
     # Units
     assets["cavalry"] = _draw_units(Path("%s/gfx/interface/unit_folder_army_2_cavalry.dds" % folder),
                           QRect(37, 4, 28, 28), [(37, 4), (37, 34), (64, 4)])

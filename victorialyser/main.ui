@@ -1229,7 +1229,7 @@ selection-background-color: rgba(255, 255, 255, 55);</string>
     <property name="geometry">
      <rect>
       <x>83</x>
-      <y>40</y>
+      <y>37</y>
       <width>495</width>
       <height>525</height>
      </rect>
@@ -1247,6 +1247,31 @@ selection-background-color: rgba(255, 255, 255, 55);</string>
       <string/>
      </property>
      <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="wargoals_lbl">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>150</y>
+       <width>395</width>
+       <height>100</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0)</string>
+     </property>
+     <property name="text">
+      <string>wargoals_lbl</string>
+     </property>
+     <property name="wordWrap">
       <bool>true</bool>
      </property>
     </widget>

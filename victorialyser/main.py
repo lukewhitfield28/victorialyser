@@ -33,14 +33,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.tag_list.currentItemChanged.connect(self.select_tag)
         self.war_list.currentItemChanged.connect(self.select_war)
         self.battle_list.currentItemChanged.connect(self.select_battle)
-        self.swap_btn.clicked.connect(lambda: self.nav(self.finwidget, self.swap_btn))
+        self.swap_btn.clicked.connect(self.nav)
         self.save_btn.clicked.connect(self.load_file)
         self.game_btn.clicked.connect(lambda: self.load_folder(False))
 
         # Hide windows
         self.statswidget.hide()
 
-    def nav(self, x, y):
+    def nav(self):
         if self.finwidget.isVisible():
             self.finwidget.hide()
             self.statswidget.show()
@@ -119,6 +119,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 battles.append(battle)
             self.battle_list.clear()
             self.battle_list.addItems(battles)
+            self.wargoals_lbl.setText(str(self.war_goals))
 
     def select_battle(self):
         if self.battle_list.currentItem() is None:
